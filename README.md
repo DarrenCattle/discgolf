@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 Concept
 ---
 A round is a single game of disc golf played through a course.  
 A partial round can be stored with 0's indicating the remaining holes were unplayed.  
 
+=======
+>>>>>>> origin/master
 Database Structure (HashMap)
 ---
 Account Identifier, Array of Rounds  
@@ -24,4 +27,13 @@ Course Score (single array)
 *Location (lat,long)  
 *Course Map (external link)  
 
+<<<<<<< HEAD
 *not required, optional variable
+=======
+*not required
+
+Concept
+---
+A round is a single game of disc golf played through a course.  
+In the event that a round is incomplete, a partial round can be stored with 0's indicating the remaining holes were unplayed.
+>>>>>>> origin/master
