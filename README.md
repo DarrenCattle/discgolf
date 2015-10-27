@@ -1,7 +1,3 @@
-README.md
-
-* = not required
-
 Database Structure (HashMap)
 ---
 Account Identifier, Array of Rounds  
@@ -22,6 +18,8 @@ Course Score (single array)
 *Hole Length (single array)  
 *Location (lat,long)  
 *Course Map (external link)  
+
+*not required
 
 Concept
 ---
