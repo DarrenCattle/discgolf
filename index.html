@@ -17,8 +17,8 @@
 			<h3>Commentary</h3><h5>All the current apps suck so I made a less shitty one.</h5>
 			<h3>Select Course</h3>
 			<form name="scoreSheet">
-				<div ng-repeat="hole in dg.holes">
-					<h5 class="pull-left">Hole {{hole.index}}</h5>
+				<div ng-repeat="hole in dg.holes track by $index">
+					<h5 class="pull-left">Hole {{$index+1}}</h5>
 					<h5 class="text-center">Length {{hole.length}}</h5>
 					<h5 class="pull-right">Par {{hole.par}}</h5>
 					<br></br>
