@@ -9,25 +9,107 @@
 		<script type="text/javascript" src="js/d3.min.js"/></script>
 		<script type="text/javascript" src="js/angular-charts.min.js"></script>
 	</head>
-
-	<body class="container" ng-controller="dgController as dg">
+	<style type="text/css">
+		.container-faux {
+			margin-left:auto;
+			margin-right:auto;
+		}
+		.block-container {
+			border: 3px solid #FFFFFF;
+			background-color: #A6E22D;
+			width: 25%;
+			float:left;
+		}
+		.hole-left {
+			background-color: #A6E22D;
+			margin: auto;
+			float: left;
+			text-align: center;
+			font-size: 18px;
+			width: 50%;
+		}
+		.number-right {
+			background-color: #66D9EF;
+			margin: auto;
+			float: right;
+			text-align: center;
+			font-size: 18px;
+			width: 50%;
+		}
+		.hole-header {
+			background-color: #F92772;
+			margin: auto;
+			float: center;
+			text-align: center;
+			font-size: 18px;
+			width: 100%;
+		}
+		.form-control-tho {
+		  text-align: center;
+		  display: block;
+		  width: 100%;
+		  height: 34px;
+		  font-size: 18px;
+		  line-height: 1.42857143;
+		  color: #555;
+		  background-color: #fff;
+		  background-image: none;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+		          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+		  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+		       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+	</style>
+	<body class="container-faux" ng-controller="dgController as dg">
 		<heading class="text-center">
 			<h1>Disc Golf Score Tracker</h1>
 			<h2>by Darren Cattle</h2>
-			<h3>Commentary</h3><h5>All the current apps suck so I made a less shitty one.</h5>
+			<h3>Commentary</h3>
+			<h5>All the current apps suck so I made a less shitty one.</h5>
 			<h3>Select Course</h3>
-			<form name="scoreSheet">
-				<div ng-repeat="hole in dg.holes track by $index">
-					<h5 class="pull-left">Hole {{$index+1}}</h5>
-					<h5 class="text-center">Length {{hole.length}}</h5>
-					<h5 class="pull-right">Par {{hole.par}}</h5>
-					<br></br>
-				</div>
 				<fieldset class="form-group">
-					<input type="submit" class="btn btn-primary pull-center" value="Submit Score!"/>
+					<textarea ng-model="course" class="dropdown" title="course"></textarea>
 				</fieldset>
-			</form>
-			<h3>Results</h3>
 		</heading>
+		<section class="container-faux" align="center">
+			<form name="scoreSheet">
+				<div class="container">
+					<div ng-repeat="hole in dg.holes track by $index" ng-submit="dg.calculate(score)">
+						<div class="block-container">
+							<div class="hole-header">
+								<p>Hole {{$index+1}}</p>
+							</div>
+							<div class="hole-left">
+								<p>Par</p>
+							</div>
+							<div class="number-right">
+								<p>{{hole.par}}</p>
+							</div>
+							<div class="hole-left">
+								<p>Length</p>
+							</div>
+							<div class="number-right">
+								<p>{{hole.length}}</p>
+							</div>
+							<div class="hole-left">
+								<p>Score</p>
+							</div>
+							<div class="number-right">
+								<fieldset>
+					            	<textarea ng-model="score" class="form-control-tho" placeholder="{{hole.par}}" title="score"></textarea>
+					            </fieldset>
+							</div>
+						</div>
+					</div>
+				</div>
+			<br></br>
+			<fieldset class="form-group">
+				<input type="submit" class="btn btn-primary pull-center" value="Submit Score!"/>
+			</fieldset>
+			</form>
+		</section>
 	</body>
 </html>
